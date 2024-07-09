@@ -12,9 +12,9 @@
 
 import networkx
 import matplotlib.pyplot as plt
-
-n = 3
-m = 1
+import numpy as np
+n = 4
+m = 2
 g = networkx.complete_graph(n-1)
 g.add_node(n)
 g.add_edges_from([(n,i) for i in range(m)])

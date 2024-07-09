@@ -8,10 +8,10 @@ context = getcontext()
 
 context.prec = 10000
 
-alpha = 1/math.sqrt(20)
+alpha = 1/math.sqrt(8)
 
-n = 100
-k = 5
+n = 600
+k = 3
 print(alpha)
 D = [((alpha*i)%1) for i in range(n)]
 D.sort()
@@ -28,11 +28,12 @@ P = 0
 for i in range(k):
     P += floor((alpha%1)*(n+i)) 
 P += -n+1
+
 print('The Formulated Answer is',P)
 
 for i in range(n):
     if N[i] == k:
-        print('The Position of',k ,'th term is',i)
+        print('The Position of',k,'th term is',i+1)
 
 
 
