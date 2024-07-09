@@ -1,70 +1,48 @@
 import math
 from math import floor
 from decimal import Decimal, getcontext
-# import pickle
 import time
 start_time = time.time()
 
 context = getcontext()
 
 context.prec = 10000
-k = 4
-delta = 1/2*(1+k)
-#delta = (math.sqrt(5)+1)
-#delta = (math.pi)**(1/3)
-#delta = math.e
-#delta = math.sqrt(3)-math.sqrt(2)
-#delta  = math.sqrt(7)+2*math.sqrt(231)
-#beta = 1/(1-(1/alpha))
-#rho = 1/math.sqrt(2)
-#rho = 1/math.sqrt(30)
-#rho = math.sqrt(1/6)
-# rho = 1/(3)
-rho = 0 
 
-n = 1000
+alpha = 1/math.sqrt(20)
 
-D = [(math.floor(delta*i + rho)) for i in range(1, n)]
-m= max(D)
+n = 100
+k = 5
+print(alpha)
+D = [((alpha*i)%1) for i in range(n)]
+D.sort()
+# print(D)
+N = []
+for i in range(n):
+    for j in range(n):
+        if D[i] == ((alpha*j)%1):
+            N.append(j)
+print("The ordering is ",N)
 
-C=[]
-C.extend(range(0,m))
-C.extend(range(0,m))
-C.extend(range(0,m))
-# C.extend(range(0,m))
-# C.extend(range(0,m))
-# C.extend(range(0,m))
-C.extend(D)
-C.sort()
-#print(C)
+# for j in range(n+1):
+P = 0
+for i in range(k):
+    P += floor((alpha%1)*(n+i)) 
+P += -n+1
+print('The Formulated Answer is',P)
 
-R = []
-R.extend(range(0,m))
-R.extend(range(0,m))
-R.extend(range(0,m))
-R.extend(range(0,m))
-# R.extend(range(0,m))
-# R.extend(range(0,m))
-# R.extend(range(0,m))
-# R.extend(range(0,m))
-# R.extend(range(0,m))
-R.extend(D)
-R.sort()
-#print(R)
-
-A=[]
-B=[]
-for i in range(1,n+1):
-    A.append(2*(i) - 1 - R[i-1])
-    B.append(2*(i) + C[i-1])
-
-print(A)
-#print(B)
+for i in range(n):
+    if N[i] == k:
+        print('The Position of',k ,'th term is',i)
 
 
-if A == A:
-    print("correct")
-else:
-    print('incorrect')
 
+
+
+
+# C = [n*(k+1)((i/n)-math.floor((i/n))-k*math.floor(i/n)) for i in range(k*n+n+k)]
+
+# if D == C:
+#     print("correct")
+# else:
+#     print("incorrect")
 print("Process finished in %s seconds." % (time.time() - start_time))

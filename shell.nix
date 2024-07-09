@@ -6,6 +6,7 @@ in pkgs.mkShell {
       numpy
       scipy
       matplotlib
+      networkx
     ]))
   ];
 }
