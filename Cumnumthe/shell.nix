@@ -16,6 +16,8 @@ in pkgs.mkShell {
       jupyter
       notebook
       requests
+      
+      
     ]))
   ];
 }
